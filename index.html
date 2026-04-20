@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Air Drawing AI Web Application">
+    <title>AirDraw AI</title>
+    <!-- Google Fonts for Modern Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Modern MediaPipe Tasks Vision API -->
+    <script type="module" src="script.js" defer></script>
+</head>
+<body>
+    <div id="loader" class="loader-overlay">
+        <div class="spinner"></div>
+        <p id="loader-text">Loading Air Drawing Engine...</p>
+    </div>
+
+    <div class="canvas-container">
+        <!-- Video implicitly flipped via CSS, Canvas coordinates flipped via JS -->
+        <video id="webcam" autoplay playsinline></video>
+        <canvas id="drawing-canvas"></canvas>
+        <canvas id="overlay-canvas"></canvas> <!-- Separate canvas to avoid capturing UI into drawn states -->
+    </div>
+
+    <div class="ui-panel">
+        <h1 class="logo">AirDraw <span>AI</span></h1>
+        
+        <div class="gesture-status">
+            <span class="pulse-dot"></span>
+            <span id="active-gesture">Initializing...</span>
+        </div>
+
+        <div class="controls">
+            <div class="control-group">
+                <label for="color-picker">Brush Color</label>
+                <input type="color" id="color-picker" value="#00f7ff">
+            </div>
+            
+            <div class="control-group">
+                <label for="line-width">Brush Size: <span id="brush-size-val">8</span>px</label>
+                <input type="range" id="line-width" min="2" max="40" value="8">
+            </div>
+
+            <button id="clear-btn" class="btn">Clear Canvas</button>
+        </div>
+
+        <div class="guide">
+            <h3>Gestures Guide</h3>
+            <ul>
+                <li><span>☝️ One Finger</span> Draw</li>
+                <li><span>✋ Open Palm</span> Erase</li>
+                <li><span>🤏 Pinch</span> Move Canvas</li>
+                <li><span>✊ Fist</span> Pause</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
