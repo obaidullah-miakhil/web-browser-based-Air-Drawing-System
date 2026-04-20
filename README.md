@@ -2,7 +2,7 @@
 
 A modern, web-browser based "Air Drawing System" powered by Google MediaPipe Tasks-Vision. Turn your webcam into an interactive AI canvas using just your hands!
 Check live demo at : https://tourmaline-lollipop-23f59b.netlify.app/ 
-Note the server maybe slow please wait till the website is fully loaded.
+- Note the server maybe slow please wait till the website is fully loaded.
 ## Features
 
 - **Draw (One Finger)**: Extended index finger draws a continuous line on the canvas.
